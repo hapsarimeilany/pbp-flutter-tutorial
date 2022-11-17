@@ -1,5 +1,6 @@
 import 'package:flutter_app/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -40,7 +41,7 @@ class _MyFormPageState extends State<MyFormPage> {
                 // Route menu ke halaman utama
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
             ),
@@ -51,6 +52,16 @@ class _MyFormPageState extends State<MyFormPage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
                 );
               },
             ),
@@ -247,25 +258,26 @@ class _MyFormPageState extends State<MyFormPage> {
                                         const SizedBox(height: 20),
                                         // Munculkan informasi yang didapat dari form
                                         Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                            Text('Nama Lengkap: $_namaLengkap'),
-                                            // show jenjang based on checkbox
-                                            if (jenjangSarjana)
-                                            const Text('\nJenjang: Sarjana')
-                                            else if (jenjangDiploma)
-                                            const Text('\nJenjang: Diploma')
-                                            else if (jenjangMagister)
-                                            const Text('\nJenjang: Magister')
-                                            else if (jenjangDoktor)
-                                            const Text('\nJenjang: Doktor'),
-                                            Text('\nUmur: $umur'),
-                                            Text('\nKelas PBP: $kelasPBP'),
-                                            if (_nilaiSwitch)
-                                            const Text('\nPractice Mode: Aktif')
-                                            else
-                                            const Text('\nPractice Mode: Tidak Aktif'),
-                                        ],
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                              Text('Nama Lengkap: $_namaLengkap'),
+                                              // show jenjang based on checkbox
+                                              if (jenjangSarjana)
+                                              const Text('\nJenjang: Sarjana')
+                                              else if (jenjangDiploma)
+                                              const Text('\nJenjang: Diploma')
+                                              else if (jenjangMagister)
+                                              const Text('\nJenjang: Magister')
+                                              else if (jenjangDoktor)
+                                              const Text('\nJenjang: Doktor'),
+                                              
+                                              Text('\nUmur: $umur'),
+                                              Text('\nKelas PBP: $kelasPBP'),
+                                              if (_nilaiSwitch)
+                                              const Text('\nPractice Mode: Aktif')
+                                              else
+                                              const Text('\nPractice Mode: Tidak Aktif'),
+                                          ],
                                         ),
                                         TextButton(
                                         onPressed: () {
